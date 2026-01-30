@@ -15,14 +15,18 @@
     <header>
         <nav class="navbar">
             <div class="logo">MyBrand</div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <button class="nav-btn" onclick="window.location.href = '/Login-Page'">Login</button>
-            <button class="nav-btn btn-primary" onclick="window.location.href = '/Register-Page'">Register</button>
+            {% if user.is_authenticated %}
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <button class="nav-btn btn-primary" onclick="window.location.href = '/Logout'">Logout</button>
+                </ul>
+            {% else %}
+                <button class="nav-btn" onclick="window.location.href = '/Login-Page'">Login</button>
+                <button class="nav-btn btn-primary" onclick="window.location.href = '/Register-Page'">Register</button>
+            {% endif %}
         </nav>
     </header>
 
@@ -34,7 +38,7 @@
                 Build modern, responsive and professional websites using
                 clean HTML and CSS. Simple, fast and elegant.
             </p>
-            <a href="#" class="hero-btn">Get Started</a>
+            <a href="/DashBoard" class="hero-btn">Get Started</a>
         </div>
     </main>
 
